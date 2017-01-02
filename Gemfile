@@ -20,6 +20,7 @@ group :development, :test do
   gem 'sqlite3', '1.3.12'
   gem 'byebug',  '9.0.0', platform: :mri
   gem 'minitest-reporters'
+  gem 'rails-controller-testing'
 end
 
 group :development do
