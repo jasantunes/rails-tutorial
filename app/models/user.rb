@@ -13,7 +13,9 @@ class User < ApplicationRecord
   #    (and false otherwise)
   #  - has_secure_password requires an attribute called password_digest
   has_secure_password
-     
+  
+  validates :password, presence: true, length: { minimum: 6 }
+  
   # Ensure uniqueness by downcasting the email attribute
   before_save do
     self.email = email.downcase
