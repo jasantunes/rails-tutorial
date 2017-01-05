@@ -8,8 +8,11 @@ class SessionsController < ApplicationController
       # Log the user in and redirect to the user's show page.
       puts "User " + params[:session][:email] + " logged in"
     else
-      # Create an error message.
-      puts "User " + params[:session][:email] + " not logged in"
+      # Create an error message.  Use flash.now (instead of just flash),
+      # which is specifically designed for displaying flash messages that
+      # disappear as soon as there is an additional request.
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
     end
   end
 
